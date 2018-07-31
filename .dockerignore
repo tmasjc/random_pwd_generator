@@ -1,0 +1,6 @@
+*.swp
+*.Rproj*
+.Rhistory
+.git*
+tester/
+validator/
