@@ -3,6 +3,9 @@ version: "3"
 services:
   some-mongo:
     image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: example
   generator:
     build: .
     image: generator:dev
@@ -12,7 +15,10 @@ services:
   tester:
     build: ./tester
     image: tester:dev
-    command: ["Rscript", "--vanilla", "main.R"]
+    command: ["sh", "run_test.sh"]
+    environment:
+      WAIT_HOSTS: generator:8899
+      WAIT_HOSTS: some-mongo:27017
   # validator:
   #   build: ./validator
   #   image: validator:dev
