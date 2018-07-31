@@ -1,0 +1,6 @@
+## TODO
+
+1. Remove shell script for dev purposes
+1. Reconfigure git submodules to https
+1. Write a README with RMarkdown
+1. Install Weave Scope
