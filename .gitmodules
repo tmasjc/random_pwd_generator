@@ -1,6 +1,6 @@
 [submodule "generator_time_tester"]
 	path = tester
-	url = git@github.com:tmasjc/generator_time_tester.git 
+	url = https://github.com/tmasjc/generator_time_tester.git 
 [submodule "validator"]
 	path = validator
-	url = git@github.com:tmasjc/generator_time_validator.git
+	url = https://github.com/tmasjc/generator_time_validator.git 
