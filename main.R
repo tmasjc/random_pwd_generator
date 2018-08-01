@@ -52,7 +52,7 @@ function(req, sep = "-") {
         paste0(collapse = sep)
     
     # print to console
-    cat_boxx("*** PASSWORD GENERATED ***", col = "lightgreen")
+    cat_line("--- PASSWORD GENERATED ---", col = "lightgreen")
     
     # return
     format_and_return(res)
@@ -71,8 +71,8 @@ function(req, n = 3, sep = "-") {
     })
     
     # print to console
-    paste("*** {", n, "} PASSWORD GENERATED ***") %>% 
-        cat_boxx(col = "green")
+    paste("--- {", n, "} PASSWORD GENERATED ---") %>% 
+        cat_line(col = "green")
     
     
     # return 

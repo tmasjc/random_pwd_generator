@@ -9,16 +9,22 @@ services:
   generator:
     build: .
     image: generator:dev
-    ports:
-      - "8899:8899"
+    volumes:
+      - ./main.R:/main.R
     command: ["Rscript", "--vanilla", "plumber.R"]
   tester:
     build: ./tester
     image: tester:dev
     command: ["sh", "run_test.sh"]
+    volumes:
+      - ./tester/main.R:/tester/main.R
     environment:
-      WAIT_HOSTS: generator:8899
-      WAIT_HOSTS: some-mongo:27017
-  # validator:
-  #   build: ./validator
-  #   image: validator:dev
+      WAIT_HOSTS: generator:8899, some-mongo:27017
+  validator:
+    build: ./validator
+    image: validator:dev
+    ports:
+      - "8899:8899"
+    volumes:
+      - ./validator/main.R:/validator/main.R
+    command: ["Rscript", "--vanilla", "plumber.R"]
