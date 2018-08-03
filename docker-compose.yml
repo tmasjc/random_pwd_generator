@@ -9,6 +9,8 @@ services:
   generator:
     build: .
     image: generator:dev
+    ports:
+      - "8888:8899"
     volumes:
       - ./main.R:/main.R
     command: ["Rscript", "--vanilla", "plumber.R"]
